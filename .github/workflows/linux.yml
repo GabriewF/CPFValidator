@@ -1,0 +1,214 @@
+name: "📦 Build Linux C# Application"
+on: 
+  push:
+    branches:
+    - "production"
+
+jobs:
+  build-linux-x64:
+    name: "🔃 BUILD - Build Linux x64"
+    runs-on: ubuntu-latest
+    
+    steps:
+      ## Checkout the repository
+      - name: "🔃 CI - Checkout the repository"
+        uses: actions/checkout@v3
+      
+      ## Setup the .NET CLI
+      - name: "🔃 CI - Setup .NET"
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '6.0.x'
+
+      ## Build the C# Application
+      - name: "🔃 CI - Build the C# Application"
+        run: |
+          dotnet publish --self-contained true --configuration Release --runtime  linux-x64 --output out
+
+      - name: "🔃 CI - Upload C# Application"
+        uses: actions/upload-artifact@v3
+        with:
+          name: Linux-x64-Binary
+          path: out/CPFValidator
+
+  build-linux-x86:
+    name: "🔃 BUILD - Build Linux x86"
+    runs-on: ubuntu-latest
+    
+    steps:
+      ## Checkout the repository
+      - name: "🔃 CI - Checkout the repository"
+        uses: actions/checkout@v3
+      
+      ## Setup the .NET CLI
+      - name: "🔃 CI - Setup .NET"
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '6.0.x'
+
+      ## Build the C# Application
+      - name: "🔃 CI - Build the C# Application"
+        run: |
+          dotnet publish --self-contained true --configuration Release --runtime  linux-x86 --output out
+
+      - name: "🔃 CI - Upload C# Application"
+        uses: actions/upload-artifact@v3
+        with:
+          name: Linux-x86-Binary
+          path: out/CPFValidator
+  
+  build-linux-arm:
+    name: "🔃 BUILD - Build Linux ARM"
+    runs-on: ubuntu-latest
+    
+    steps:
+      ## Checkout the repository
+      - name: "🔃 CI - Checkout the repository"
+        uses: actions/checkout@v3
+      
+      ## Setup the .NET CLI
+      - name: "🔃 CI - Setup .NET"
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '6.0.x'
+
+      ## Build the C# Application
+      - name: "🔃 CI - Build the C# Application"
+        run: |
+          dotnet publish --self-contained true --configuration Release --runtime  linux-arm --output out
+
+      - name: "🔃 CI - Upload C# Application"
+        uses: actions/upload-artifact@v3
+        with:
+          name: Linux-ARM-Binary
+          path: out/CPFValidator
+
+  build-linux-arm64:
+    name: "🔃 BUILD - Build Linux ARM64"
+    runs-on: ubuntu-latest
+    
+    steps:
+      ## Checkout the repository
+      - name: "🔃 CI - Checkout the repository"
+        uses: actions/checkout@v3
+      
+      ## Setup the .NET CLI
+      - name: "🔃 CI - Setup .NET"
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '6.0.x'
+
+      ## Build the C# Application
+      - name: "🔃 CI - Build the C# Application"
+        run: |
+          dotnet publish --self-contained true --configuration Release --runtime  linux-arm64 --output out
+
+      - name: "🔃 CI - Upload C# Application"
+        uses: actions/upload-artifact@v3
+        with:
+          name: Linux-ARM64-Binary
+          path: out/CPFValidator
+  
+  build-linux-musl-x64:
+    name: "🔃 BUILD - Build Linux MUSL x64"
+    runs-on: ubuntu-latest
+    
+    steps:
+      ## Checkout the repository
+      - name: "🔃 CI - Checkout the repository"
+        uses: actions/checkout@v3
+      
+      ## Setup the .NET CLI
+      - name: "🔃 CI - Setup .NET"
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '6.0.x'
+
+      ## Build the C# Application
+      - name: "🔃 CI - Build the C# Application"
+        run: |
+          dotnet publish --self-contained true --configuration Release --runtime  linux-musl-x64 --output out
+
+      - name: "🔃 CI - Upload C# Application"
+        uses: actions/upload-artifact@v3
+        with:
+          name: Linux-MUSL-x64-Binary
+          path: out/CPFValidator
+
+  build-linux-musl-x86:
+    name: "🔃 BUILD - Build Linux MUSL x86"
+    runs-on: ubuntu-latest
+    
+    steps:
+      ## Checkout the repository
+      - name: "🔃 CI - Checkout the repository"
+        uses: actions/checkout@v3
+      
+      ## Setup the .NET CLI
+      - name: "🔃 CI - Setup .NET"
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '6.0.x'
+
+      ## Build the C# Application
+      - name: "🔃 CI - Build the C# Application"
+        run: |
+          dotnet publish --self-contained true --configuration Release --runtime  linux-musl-x86 --output out
+
+      - name: "🔃 CI - Upload C# Application"
+        uses: actions/upload-artifact@v3
+        with:
+          name: Linux-MUSL-x86-Binary
+          path: out/CPFValidator
+  
+  build-linux-musl-arm:
+    name: "🔃 BUILD - Build Linux MUSL ARM"
+    runs-on: ubuntu-latest
+    
+    steps:
+      ## Checkout the repository
+      - name: "🔃 CI - Checkout the repository"
+        uses: actions/checkout@v3
+      
+      ## Setup the .NET CLI
+      - name: "🔃 CI - Setup .NET"
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '6.0.x'
+
+      ## Build the C# Application
+      - name: "🔃 CI - Build the C# Application"
+        run: |
+          dotnet publish --self-contained true --configuration Release --runtime  linux-musl-arm --output out
+
+      - name: "🔃 CI - Upload C# Application"
+        uses: actions/upload-artifact@v3
+        with:
+          name: Linux-MUSL-ARM-Binary
+          path: out/CPFValidator
+
+  build-linux-musl-arm64:
+    name: "🔃 BUILD - Build Linux MUSL ARM64"
+    runs-on: ubuntu-latest
+    
+    steps:
+      ## Checkout the repository
+      - name: "🔃 CI - Checkout the repository"
+        uses: actions/checkout@v3
+      
+      ## Setup the .NET CLI
+      - name: "🔃 CI - Setup .NET"
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '6.0.x'
+
+      ## Build the C# Application
+      - name: "🔃 CI - Build the C# Application"
+        run: |
+          dotnet publish --self-contained true --configuration Release --runtime  linux-musl-arm64 --output out
+
+      - name: "🔃 CI - Upload C# Application"
+        uses: actions/upload-artifact@v3
+        with:
+          name: Linux-MUSL-ARM64-Binary
+          path: out/CPFValidator

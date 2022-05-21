@@ -1,0 +1,58 @@
+name: "📦 Build OSX C# Application"
+on: 
+  push:
+    branches:
+    - "production"
+
+jobs:
+  build-osx-x64:
+    name: "🔃 BUILD - Build OSX x64"
+    runs-on: macos-latest
+    
+    steps:
+      ## Checkout the repository
+      - name: "🔃 CI - Checkout the repository"
+        uses: actions/checkout@v3
+      
+      ## Setup the .NET CLI
+      - name: "🔃 CI - Setup .NET"
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '6.0.x'
+
+      ## Build the C# Application
+      - name: "🔃 CI - Build the C# Application"
+        run: |
+          dotnet publish --self-contained true --configuration Release --runtime osx-x64 --output out
+
+      - name: "🔃 CI - Upload C# Application"
+        uses: actions/upload-artifact@v3
+        with:
+          name: OSX-x64-Binary
+          path: out/CPFValidator
+
+  build-osx-arm64:
+    name: "🔃 BUILD - Build OSX ARM64"
+    runs-on: macos-latest
+    
+    steps:
+      ## Checkout the repository
+      - name: "🔃 CI - Checkout the repository"
+        uses: actions/checkout@v3
+      
+      ## Setup the .NET CLI
+      - name: "🔃 CI - Setup .NET"
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '6.0.x'
+
+      ## Build the C# Application
+      - name: "🔃 CI - Build the C# Application"
+        run: |
+          dotnet publish --self-contained true --configuration Release --runtime  osx-arm64 --output out
+
+      - name: "🔃 CI - Upload C# Application"
+        uses: actions/upload-artifact@v3
+        with:
+          name: OSX-ARM64-Binary
+          path: out/CPFValidator
