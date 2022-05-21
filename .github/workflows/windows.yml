@@ -23,7 +23,7 @@ jobs:
       ## Build the C# Application
       - name: "🔃 CI - Build the C# Application"
         run: |
-          dotnet publish --self-contained true --configuration Release --runtime win-x64 --output out
+          dotnet publish  --configuration Release --runtime win-x64 --output out
 
       - name: "🔃 CI - Upload C# Application"
         uses: actions/upload-artifact@v3
@@ -49,7 +49,7 @@ jobs:
       ## Build the C# Application
       - name: "🔃 CI - Build the C# Application"
         run: |
-          dotnet publish --self-contained true --configuration Release --runtime  win-x86 --output out
+          dotnet publish  --configuration Release --runtime  win-x86 --output out
 
       - name: "🔃 CI - Upload C# Application"
         uses: actions/upload-artifact@v3
@@ -75,7 +75,7 @@ jobs:
       ## Build the C# Application
       - name: "🔃 CI - Build the C# Application"
         run: |
-          dotnet publish --self-contained true --configuration Release --runtime  win-arm --output out
+          dotnet publish  --configuration Release --runtime  win-arm --output out
 
       - name: "🔃 CI - Upload C# Application"
         uses: actions/upload-artifact@v3
@@ -101,7 +101,7 @@ jobs:
       ## Build the C# Application
       - name: "🔃 CI - Build the C# Application"
         run: |
-          dotnet publish --self-contained true --configuration Release --runtime  win-arm64 --output out
+          dotnet publish  --configuration Release --runtime  win-arm64 --output out
 
       - name: "🔃 CI - Upload C# Application"
         uses: actions/upload-artifact@v3
