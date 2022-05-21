@@ -6,9 +6,12 @@
 */
 
 // Program
-namespace CPFValidator.Ways {
-  class WithoutCLIArgs {
-    public static void Run() {
+namespace CPFValidator.Ways
+{
+  class WithoutCLIArgs
+  {
+    public static void Run()
+    {
       // Log
       Console.WriteLine();
       Console.WriteLine("  Sem argumentos CLI!");

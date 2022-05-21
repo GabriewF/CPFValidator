@@ -6,12 +6,18 @@
 */
 
 // Program
-namespace CPFValidator {
-  class Program {
-    static void Main(String[] args) {
-      if (args.Length <= 0) {
+namespace CPFValidator
+{
+  class Program
+  {
+    static void Main(String[] args)
+    {
+      if (args.Length <= 0)
+      {
         CPFValidator.Ways.WithoutCLIArgs.Run();
-      } else if (args.Length >= 1) {
+      }
+      else if (args.Length >= 1)
+      {
         CPFValidator.Ways.WithCLIArgs.Run(args);
       }
     }
