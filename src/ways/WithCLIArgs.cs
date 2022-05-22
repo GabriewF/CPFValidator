@@ -8,7 +8,7 @@
 ///
 using System.Text.RegularExpressions;
 
-// Program
+// With CLI Args Way
 namespace CPFValidator.Ways
 {
   class WithCLIArgs
@@ -18,12 +18,11 @@ namespace CPFValidator.Ways
       // Verify if has only numbers
       if (!Regex.IsMatch(args[0], @"^\d+$"))
       {
-        // Bep Bop
-        Console.Beep();
+        // Clear's the console
         Console.Clear();
         Console.WriteLine();
 
-        // Title
+        // Error Title
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("  ERRO");
         Console.ResetColor();
@@ -49,11 +48,10 @@ namespace CPFValidator.Ways
       // Get the CPF
       int[] CPFArray = args[0].ToCharArray().Select(x => (int)Char.GetNumericValue(x)).ToArray();
 
-      // CPF Length verify
+      // Verify the CPF Length
       if (CPFArray.Length != 11)
       {
-        // Bep Bop
-        Console.Beep();
+        // Clear's the console
         Console.Clear();
         Console.WriteLine();
 
@@ -81,33 +79,33 @@ namespace CPFValidator.Ways
       }
 
       // Primary digit, calculations
-      Int32 CPFResult01 = 0;
-      CPFResult01 =+ CPFArray[0] * 10;
-      CPFResult01 =+ CPFArray[1] * 09;
-      CPFResult01 =+ CPFArray[2] * 08;
-      CPFResult01 =+ CPFArray[3] * 07;
-      CPFResult01 =+ CPFArray[4] * 06;
-      CPFResult01 =+ CPFArray[5] * 05;
-      CPFResult01 =+ CPFArray[6] * 04;
-      CPFResult01 =+ CPFArray[7] * 03;
-      CPFResult01 =+ CPFArray[8] * 02;
+      Int32 CPFDigit01 = 0;
+      CPFDigit01 =+ CPFArray[0] * 10;
+      CPFDigit01 =+ CPFArray[1] * 09;
+      CPFDigit01 =+ CPFArray[2] * 08;
+      CPFDigit01 =+ CPFArray[3] * 07;
+      CPFDigit01 =+ CPFArray[4] * 06;
+      CPFDigit01 =+ CPFArray[5] * 05;
+      CPFDigit01 =+ CPFArray[6] * 04;
+      CPFDigit01 =+ CPFArray[7] * 03;
+      CPFDigit01 =+ CPFArray[8] * 02;
 
       // Secondary digit, calculations
-      Int32 CPFResult02 = 0;
-      CPFResult02 =+ CPFArray[0] * 11;
-      CPFResult02 =+ CPFArray[1] * 10;
-      CPFResult02 =+ CPFArray[2] * 09;
-      CPFResult02 =+ CPFArray[3] * 08;
-      CPFResult02 =+ CPFArray[4] * 07;
-      CPFResult02 =+ CPFArray[5] * 06;
-      CPFResult02 =+ CPFArray[6] * 05;
-      CPFResult02 =+ CPFArray[7] * 04;
-      CPFResult02 =+ CPFArray[8] * 03;
-      CPFResult02 =+ CPFArray[9] * 02;
+      Int32 CPFDigit02 = 0;
+      CPFDigit02 =+ CPFArray[0] * 11;
+      CPFDigit02 =+ CPFArray[1] * 10;
+      CPFDigit02 =+ CPFArray[2] * 09;
+      CPFDigit02 =+ CPFArray[3] * 08;
+      CPFDigit02 =+ CPFArray[4] * 07;
+      CPFDigit02 =+ CPFArray[5] * 06;
+      CPFDigit02 =+ CPFArray[6] * 05;
+      CPFDigit02 =+ CPFArray[7] * 04;
+      CPFDigit02 =+ CPFArray[8] * 03;
+      CPFDigit02 =+ CPFArray[9] * 02;
 
       // More calculations...
-      Int32 Digit01 = (CPFResult01 * 10) % 11;
-      Int32 Digit02 = (CPFResult02 * 10) % 11;
+      Int32 Digit01 = (CPFDigit01 * 10) % 11;
+      Int32 Digit02 = (CPFDigit02 * 10) % 11;
 
       // More verifications...
       if (Digit01.Equals(10) || Digit01.Equals(11)) Digit01 = 0;
@@ -120,7 +118,7 @@ namespace CPFValidator.Ways
         Console.Clear();
         Console.WriteLine();
 
-        // Title
+        // Title of the ERROR
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("  ERRO");
         Console.ResetColor();
