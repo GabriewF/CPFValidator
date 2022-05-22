@@ -5,7 +5,7 @@
  *
 */
 
-using System;
+///
 using System.Text.RegularExpressions;
 
 // Program
@@ -81,45 +81,42 @@ namespace CPFValidator.Ways
       }
 
       // Primary digit, calculations
-      int CPFNum01 = CPFArray[0] * 10;
-      int CPFNum02 = CPFArray[1] * 9;
-      int CPFNum03 = CPFArray[2] * 8;
-      int CPFNum04 = CPFArray[3] * 7;
-      int CPFNum05 = CPFArray[4] * 6;
-      int CPFNum06 = CPFArray[5] * 5;
-      int CPFNum07 = CPFArray[6] * 4;
-      int CPFNum08 = CPFArray[7] * 3;
-      int CPFNum09 = CPFArray[8] * 2;
+      Int32 CPFResult01 = 0;
+      CPFResult01 =+ CPFArray[0] * 10;
+      CPFResult01 =+ CPFArray[1] * 09;
+      CPFResult01 =+ CPFArray[2] * 08;
+      CPFResult01 =+ CPFArray[3] * 07;
+      CPFResult01 =+ CPFArray[4] * 06;
+      CPFResult01 =+ CPFArray[5] * 05;
+      CPFResult01 =+ CPFArray[6] * 04;
+      CPFResult01 =+ CPFArray[7] * 03;
+      CPFResult01 =+ CPFArray[8] * 02;
 
       // Secondary digit, calculations
-      int CPF2Calc01 = CPFArray[0] * 11;
-      int CPF2Calc02 = CPFArray[1] * 10;
-      int CPF2Calc03 = CPFArray[2] * 9;
-      int CPF2Calc04 = CPFArray[3] * 8;
-      int CPF2Calc05 = CPFArray[4] * 7;
-      int CPF2Calc06 = CPFArray[5] * 6;
-      int CPF2Calc07 = CPFArray[6] * 5;
-      int CPF2Calc08 = CPFArray[7] * 4;
-      int CPF2Calc09 = CPFArray[8] * 3;
-      int CPF2Calc10 = CPFArray[9] * 2;
-
-      // Calculations
-      int CPFResult = CPFNum01 + CPFNum02 + CPFNum03 + CPFNum04 + CPFNum05 + CPFNum06 + CPFNum07 + CPFNum08 + CPFNum09;
-      int CPFResult2 = CPF2Calc01 + CPF2Calc02 + CPF2Calc03 + CPF2Calc04 + CPF2Calc05 + CPF2Calc06 + CPF2Calc07 + CPF2Calc08 + CPF2Calc09 + CPF2Calc10;
+      Int32 CPFResult02 = 0;
+      CPFResult02 =+ CPFArray[0] * 11;
+      CPFResult02 =+ CPFArray[1] * 10;
+      CPFResult02 =+ CPFArray[2] * 09;
+      CPFResult02 =+ CPFArray[3] * 08;
+      CPFResult02 =+ CPFArray[4] * 07;
+      CPFResult02 =+ CPFArray[5] * 06;
+      CPFResult02 =+ CPFArray[6] * 05;
+      CPFResult02 =+ CPFArray[7] * 04;
+      CPFResult02 =+ CPFArray[8] * 03;
+      CPFResult02 =+ CPFArray[9] * 02;
 
       // More calculations...
-      int CPFRest = (CPFResult * 10) % 11;
-      int CPFRest2 = (CPFResult2 * 10) % 11;
+      Int32 Digit01 = (CPFResult01 * 10) % 11;
+      Int32 Digit02 = (CPFResult02 * 10) % 11;
 
       // More verifications...
-      if (CPFRest.Equals(10) || CPFRest.Equals(11)) CPFRest = 0;
-      if (CPFRest2.Equals(10) || CPFRest2.Equals(11)) CPFRest2 = 0;
+      if (Digit01.Equals(10) || Digit01.Equals(11)) Digit01 = 0;
+      if (Digit02.Equals(10) || Digit02.Equals(11)) Digit02 = 0;
 
       // Error if the CPF is invalid
-      if (CPFRest2 != CPFArray[10] && CPFRest != CPFArray[9])
+      if (Digit02 != CPFArray[10] && Digit01 != CPFArray[9])
       {
-        // Bep Bop
-        Console.Beep();
+        /// Print Invalid CPF ERROR
         Console.Clear();
         Console.WriteLine();
 
@@ -145,8 +142,7 @@ namespace CPFValidator.Ways
         Environment.Exit(0);
       }
 
-      // Bep Bop
-      Console.Beep();
+      // Print Successfully Checked CPF
       Console.Clear();
       Console.WriteLine();
 
