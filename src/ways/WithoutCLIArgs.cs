@@ -38,7 +38,6 @@ namespace CPFValidator.Ways
       if (!Regex.IsMatch($"{CPFInput}", @"^\d+$"))
       {
         // Bep Bop
-        Console.Beep();
         Console.Clear();
         Console.WriteLine();
 
@@ -72,7 +71,6 @@ namespace CPFValidator.Ways
       if (CPFArray.Length != 11)
       {
         // Bep Bop
-        Console.Beep();
         Console.Clear();
         Console.WriteLine();
 
